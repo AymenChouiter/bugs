@@ -1,7 +1,7 @@
-# VULN-001 — Hardcoded Credentials & Client-Side Authentication Bypass
+# VLN-001 — Hardcoded Credentials & Client-Side Authentication Bypass
 
-> **Target:** OKAMI Streetwear — Admin Panel  
-> **URL:** `https://www.okami-streetwear.com/admin`  
+> **Target:** ▓▓▓▓▓ Streetwear — Admin Panel  
+> **URL:** `https://www.▓▓▓▓▓-streetwear.com/admin`  
 > **Audit Type:** Black-box / Source Review  
 > **Severity:** 🔴 Critical  
 > **Status:** Disclosed to client — Patch Pending  
@@ -26,7 +26,7 @@
 
 ## Summary
 
-The admin panel of **OKAMI Streetwear** (`/admin`) contains two critical authentication vulnerabilities:
+The admin panel of ▓▓▓▓▓ **Streetwear** (`/admin`) contains two critical authentication vulnerabilities:
 
 1. **Hardcoded credentials** exposed in a publicly accessible JavaScript bundle.
 2. **Client-side-only authentication** that can be bypassed entirely without any credentials.
@@ -53,20 +53,20 @@ Any unauthenticated attacker who visits the site can gain full admin access — 
 
 ### 1. Hardcoded Credentials in Public JS Bundle
 
-The file `https://www.okami-streetwear.com/assets/Admin-CawTEvGu.js` is served publicly with no access control. Inside it, the login validation function contains plaintext credentials:
+The file `https://www.▓▓▓▓▓-streetwear.com/assets/Admin-CawTEvGu.js` is served publicly with no access control. Inside it, the login validation function contains plaintext credentials:
 
 ```javascript
 // Extracted from Admin-CawTEvGu.js
 const w = async c => {
     c.preventDefault();
-    i === "okami@gmail.com" && m === "okami23"
+    i === "▓▓▓▓▓@gmail.com" && m === "▓▓▓▓▓23"
         ? (sessionStorage.setItem("admin_auth", "true"), r(!0), x("/admin/dashboard"))
         : (f("Invalid credentials"), h(!1));
 };
 ```
 
-- **Email:** `okami@gmail.com`  
-- **Password:** `okami23`
+- **Email:** `▓▓▓▓▓@gmail.com`  
+- **Password:** `▓▓▓▓▓23`
 
 These are readable by anyone using browser DevTools → Sources tab, or by simply fetching the URL directly.
 
@@ -103,11 +103,11 @@ Admin routes such as `/admin/orders`, `/admin/customers`, `/admin/products` are 
 ### PoC 1 — Credential Extraction (30 seconds)
 
 ```bash
-curl https://www.okami-streetwear.com/assets/Admin-CawTEvGu.js | grep -o '"[^"]*@[^"]*"'
-# Output: "okami@gmail.com"
+curl https://www.▓▓▓▓▓-streetwear.com/assets/Admin-CawTEvGu.js | grep -o '"[^"]*@[^"]*"'
+# Output: "▓▓▓▓▓@gmail.com"
 
-curl https://www.okami-streetwear.com/assets/Admin-CawTEvGu.js | grep -o '"okami[^"]*"'
-# Output: "okami23"
+curl https://www.▓▓▓▓▓-streetwear.com/assets/Admin-CawTEvGu.js | grep -o '"▓▓▓▓▓[^"]*"'
+# Output: "▓▓▓▓▓23"
 ```
 
 ### PoC 2 — Authentication Bypass via Browser Console
@@ -176,7 +176,7 @@ Every protected API request → Server validates token → responds
 
 ### Immediate Actions (P0)
 
-- [ ] **Change credentials immediately** — `okami23` is now public knowledge
+- [ ] **Change credentials immediately** — `▓▓▓▓▓23` is now public knowledge
 - [ ] **Remove all hardcoded credentials** from any JS file
 - [ ] **Block direct access** to admin JS bundles via server config (Nginx/Caddy)
 
@@ -188,7 +188,7 @@ Every protected API request → Server validates token → responds
 
 ### Long-Term (P2)
 
-- [ ] Deploy the admin panel on a **separate subdomain** (`admin.okami-streetwear.com`) with server-side routing protection
+- [ ] Deploy the admin panel on a **separate subdomain** (`admin.▓▓▓▓▓-streetwear.com`) with server-side routing protection
 - [ ] Add **Multi-Factor Authentication (MFA)** for admin access
 - [ ] Set up **IP allowlisting** if admin access is only needed from known locations
 - [ ] Regular security audits before deploying new features
