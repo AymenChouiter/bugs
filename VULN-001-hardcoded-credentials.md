@@ -4,9 +4,9 @@
 > **URL:** `https://www.▓▓▓▓▓-streetwear.com/admin`  
 > **Audit Type:** Black-box / Source Review  
 > **Severity:** 🔴 Critical  
-> **Status:** Disclosed to client — Patch Pending  
-> **Date:** 2025-04-04  
-> **Researcher:** Aymen Chouiter  
+> **Status:** Disclosed to client — Patch Ignored  
+> **Date:** 2025-31-03 | 3:29:31 PM  
+> **By:** Aymen Chouiter  
 
 ---
 
@@ -20,7 +20,6 @@
 6. [CVSS Score](#cvss-score)
 7. [Root Cause](#root-cause)
 8. [Remediation](#remediation)
-9. [Timeline](#timeline)
 
 ---
 
@@ -121,6 +120,10 @@ window.location.href = "/admin/dashboard";
 ```
 
 **Expected result:** Full access to the admin dashboard without entering any credentials.
+
+## Proof of Concept — Video Demonstration
+
+[🎥 View PoC Recording](https://www.loom.com/share/f475fc38cca3465ca369309f0130b641)
 
 ---
 
@@ -229,16 +232,4 @@ function requireAdmin(req, res, next) {
 
 ---
 
-## Timeline
-
-| Date | Event |
-|------|-------|
-| 2025-04-04 | Vulnerability discovered during security audit |
-| 2025-04-04 | Disclosed to client privately |
-| 2025-04-04 | Client acknowledged — patch planned |
-| TBD | Patch deployed |
-| TBD | Verification and report closure |
-
----
-
-*This report was written as part of an authorized security audit. All findings were responsibly disclosed to the client before publication.*
+*All findings were responsibly disclosed to the client before publication.*
