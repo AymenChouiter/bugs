@@ -123,7 +123,9 @@ window.location.href = "/admin/dashboard";
 
 ## Proof of Concept — Video Demonstration
 
-[![🎥 View PoC Recording](https://img.shields.io/badge/▶_Watch_PoC-Demo-red?style=for-the-badge)](https://www.loom.com/share/f475fc38cca3465ca369309f0130b641)
+<a href="https://www.loom.com/share/f475fc38cca3465ca369309f0130b641" target="_blank">
+  <img src="https://img.shields.io/badge/▶_Watch_PoC-Demo-red?style=for-the-badge" alt="Watch PoC"/>
+</a>
 
 ---
 
