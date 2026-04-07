@@ -123,7 +123,7 @@ window.location.href = "/admin/dashboard";
 
 ## Proof of Concept — Video Demonstration
 
-[![PoC Recording](https://img.shields.io/badge/▶_Watch_PoC-Demo-red?style=for-the-badge)](https://github.com/AymenChouiter/bugs/assets/VLN1-poc.mp4)
+[![PoC Recording](https://img.shields.io/badge/▶_Watch_PoC-Demo-red?style=for-the-badge)](../assets/VLN1-poc.mp4)
 
 [🎥 View PoC Recording](https://www.loom.com/share/f475fc38cca3465ca369309f0130b641)
 
